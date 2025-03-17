@@ -27,7 +27,8 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "eslint": "^8.57.0",
