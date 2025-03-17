@@ -1,5 +1,4 @@
 npm run lint
 npm run format
-npm run commitlint
 git add .
 
