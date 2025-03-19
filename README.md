@@ -115,47 +115,9 @@ npm run prepare
 2. 添加 Git 钩子：
 
 ```bash
-npx husky set .husky/pre-commit "npm run lint && npm run format:check"
-npx husky set .husky/commit-msg "npm run commitlint"
+npx husky add .husky/pre-commit "npm run lint && npm run format:check"
+npx husky add .husky/commit-msg "npm run commitlint"
 ```
-
-3. Git 钩子配置说明：
-
-#### pre-commit 钩子
-
-在 `.husky/pre-commit` 文件中配置了提交前的代码检查：
-
-```bash
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# 运行代码检查和格式化检查
-npm run lint && npm run format:check
-```
-
-这个钩子会在每次提交前执行以下操作：
-
-- 运行 ESLint 检查代码质量
-- 检查代码是否符合 Prettier 格式规范
-- 如果检查不通过，提交会被阻止
-
-#### commit-msg 钩子
-
-在 `.husky/commit-msg` 文件中配置了提交信息规范检查：
-
-```bash
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# 检查提交信息是否符合规范
-npm run commitlint -- --edit $1
-```
-
-这个钩子会在提交时执行以下操作：
-
-- 使用 commitlint 检查提交信息格式
-- 验证提交信息是否符合 Conventional Commits 规范
-- 如果提交信息不符合规范，提交会被阻止
 
 ### Commitlint 配置
 
